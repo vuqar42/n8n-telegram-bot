@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: n8n-telegram-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: N8N_PORT
+        value: 5678
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_URL
+        sync: false
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: GENERIC_TIMEZONE
+        value: Asia/Baku
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
