@@ -7,5 +7,6 @@ RUN apk add --no-cache \
     g++ \
     make
 
+
 USER node
 EXPOSE 5678
